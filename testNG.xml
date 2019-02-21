@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="接口自动化">
+	<test name="用户端接口">
+		<classes>
+			<class name="com.yiqi.hj.interface_test.LifeUser_InterfaceTest"></class>
+		</classes>
+	</test>
+	<listeners>
+		<!-- reportng监听器 -->
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="com.yiqi.hj.listener.TestListener" />
+	</listeners>
+</suite>
