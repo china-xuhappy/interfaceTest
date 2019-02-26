@@ -54,10 +54,7 @@ public class JDBCUtil{
 		try {
 			// 加载驱动
 			Class.forName("com.mysql.jdbc.Driver");
-			//正式服
-//			connection = DriverManager.getConnection("jdbc:mysql://rm-wz9r5bwjnfh5pnp24uo.mysql.rds.aliyuncs.com:3306/lifeplus?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true", "root", "aLIYUN2017");
-			//测试服
-			connection = DriverManager.getConnection("jdbc:mysql://rm-wz9fw4q99ky07rh0p7o.mysql.rds.aliyuncs.com:3306/lifeplus_test?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true", "root", "Aliyun2018");
+			connection = DriverManager.getConnection("jdbc:mysql://123.56.28.90:3306/XuHappy?useSSL=false", "root", "123456");
 			return connection;
 		} catch (Exception e) {
 			e.printStackTrace();

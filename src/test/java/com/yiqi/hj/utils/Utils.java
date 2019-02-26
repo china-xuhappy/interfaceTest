@@ -17,10 +17,10 @@ public class Utils {
 		JSONObject expected = JSONObject.fromObject(expectedData);
 		JSONObject request = JSONObject.fromObject(requestValue);
 		
-		System.out.println(Integer.parseInt(request.get("info").toString())+"------------------");
+		System.out.println(Integer.parseInt(request.get("code").toString())+"------------------");
 		
-		if (Integer.parseInt(expected.get("info").toString()) == 100) {
-			if (Integer.parseInt(request.get("info").toString()) != 100) {
+		if (Integer.parseInt(expected.get("code").toString()) == 100) {
+			if (Integer.parseInt(request.get("code").toString()) != 100) {
 				System.out.println(request);
 				return false;
 			} 

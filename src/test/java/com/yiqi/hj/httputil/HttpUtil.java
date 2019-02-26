@@ -38,18 +38,11 @@ public class HttpUtil implements Log {
 	public static HashMap<String, String> testDatas = new HashMap<String,String>();//存储测试中需要用到的动态数据
 	private static HttpPost post;
 	private static HttpGet get;
-//	private static final String HTTPURL = "http://yghn.yangguanghaina.com";
-
-	private static final String HTTPURL = "http://ceshi.yangguanghaina.com";
-	private static final String DJJHTTPURL = "http://39.108.146.220";
-//	private static final String HTTPURL = "http://fhgl.yangguanghaina.com";
-//	private static final String HTTPURL = "http://lifeplus.yangguanghaina.com";
-	
-//	private static final String HTTPURL = "http://47.112.30.250";
-//	private static final String DJJHTTPURL = "http://47.107.56.127";
+	private static final String HTTPURL = "http://www.xuhappy.com";
+//	private static final String DJJHTTPURL = "http://test";
 	//存放不同接口，例如项目中用到 多个域名。请按照Excel用例的isUrl(指定服务器url)
-	private static final String[] https = new String[]{HTTPURL,DJJHTTPURL};
-	
+//	private static final String[] https = new String[]{HTTPURL,DJJHTTPURL};
+	private static final String[] https = new String[]{HTTPURL};
 	/**
 	 * post请求
 	 * 
@@ -158,24 +151,13 @@ public class HttpUtil implements Log {
 		long timestamp = new Date().getTime();
 		String logValue;
 		JSONObject json;
-		//判断是生活plus 后台，还是代金券后台
+		//判断接口是否需要加token, 0需要加，其他自定义
 		if (httpid.equals("0")) {
-			//骑手，用户，商家都需要token，需要区分
-			HashMap<String, String> parmes = new HashMap<String,String>();
-			parmes.put("version", "3.0");
-			parmes.put("signatureMethod", "md5");
-			parmes.put("format", "json");
-			parmes.put("params", parmesStr);
-			parmes.put("appKey", "10990665afc94531a3121a0b374d4e78");
-			parmes.put("timestamp", String.valueOf(timestamp));
+			JSONObject parmes = JSONObject.fromObject(parmesStr);
 			parmes.put("token", testDatas.get("user_token"));
-			String paramsMd5 = parmesStr + "appKey=10990665afc94531a3121a0b374d4e78format=jsontimestamp=" + timestamp + "version=3.0signatureMethod=md589bc8adea10a4bbc8730782305a9adff";
-			String signature = md5Password(paramsMd5);
-			parmes.put("signature", signature);
 			json = JSONObject.fromObject(parmes);
 			logValue = "Url:"+https[Integer.parseInt(httpid)]+url+",参数:"+json;
 		}else {
-			System.out.println(parmesStr);
 			json = JSONObject.fromObject(parmesStr);
 			logValue = "Url:"+url+",参数:"+json;
 		}

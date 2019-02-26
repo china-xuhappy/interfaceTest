@@ -3,7 +3,7 @@
 <suite name="接口自动化">
 	<test name="用户端接口">
 		<classes>
-			<class name="com.yiqi.hj.interface_test.LifeUser_InterfaceTest"></class>
+			<class name="com.yiqi.hj.interface_test.User_InterfaceTest"></class>
 		</classes>
 	</test>
 	<listeners>

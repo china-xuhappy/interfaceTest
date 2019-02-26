@@ -32,7 +32,7 @@ import net.sf.json.JSONObject;
  * @author it_ce
  *
  */
-public class LifeUser_InterfaceTest implements Log{
+public class User_InterfaceTest implements Log{
 	// 存放返回结果
 	net.sf.json.JSONObject resultJSON = null;
 	//true代表不是404可以请求成功
@@ -173,14 +173,14 @@ public class LifeUser_InterfaceTest implements Log{
 	}
 	@BeforeClass
 	public void load() {
-		//读取接口配置
-		ReadExcel excel = new ReadExcel("src/test/resources/LifeUser_InterfaceCase.xlsx", 1, 2,39, 1,6);
+		//读取接口配置 第一个1: 代表Excel第几页，第二个2 从第几行开始读，第三个5 结束行， 第四个1 从第几列开始，第五个6 结束列
+		ReadExcel excel = new ReadExcel("src/test/resources/User_InterfaceCase.xlsx", 1, 2,4, 1,6);
 		RestConfig.api_infos_List = (List<Api_info>) excel.readList(Api_info.class);
 	}
 	@DataProvider
 	public Object[][] read() {
 		//读取参数
-		ReadExcel excel = new ReadExcel("src/test/resources/LifeUser_InterfaceCase.xlsx", 2,2,55, 1, 7);
+		ReadExcel excel = new ReadExcel("src/test/resources/User_InterfaceCase.xlsx", 2,2,5, 1, 7);
 		return excel.read();
 	}
 	
@@ -188,9 +188,9 @@ public class LifeUser_InterfaceTest implements Log{
 	@BeforeTest
 	public void testLoad() {
 		try {
-			JDBCUtil.executeUpdate("DELETE FROM tb_shop_order WHERE userAccountId = (SELECT id FROM tb_user_account WHERE userPhone = '17607777776')","COMMIT");
+			JDBCUtil.executeUpdate("DELETE FROM xu_user_table WHERE phone = '17601245834'","COMMIT");
 		} catch (SQLException e) {
-			System.out.println(e);
+			log.error("删除用户失败",e);
 		}
 		log.info("删除用户完毕");
 	}
