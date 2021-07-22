@@ -260,22 +260,4 @@ public class HttpUtil implements Log {
 		log.info(logValue+"请求[成功],返回值"+returnValue);
 		return returnValue;
 	}
-	//public static void main(String[] args) {
-		/*
-		 * HttpPostWithJson("http://10.102.24.122:8080/lifeplus/riderlogin/rider_login.shtml",
-				"{\"riderPhone\":\"17601245834\",\"riderPassWord\":\"123456\"}");
-		 */
-		//String resultString = HttpPostWithJsonList("http://10.102.24.122:8080/lifeplus/riderlogin/to_upload.shtml");
-		//System.out.println(resultString);
-		//Map<String, Object> map = (Map<String, Object>) JSONObject.parse(resultString);
-		//int info = (Integer) map.get("info");
-		//Assert.assertEquals(info,100,"服务器请求超时");
-//		 List<NameValuePair> params = new ArrayList<NameValuePair>();
-//		 params.add(new
-//		 BasicNameValuePair("riderPhone","17601245834"));
-//		 params.add(new BasicNameValuePair("riderPassWord","123456"));
-//		 String requestData =
-//		 HttpUtil.getRequestStringByGet("http://10.102.24.122:8080/lifeplus/riderlogin/rider_login.shtml",params);
-//		 System.out.println(requestData);
-	//}
 }
