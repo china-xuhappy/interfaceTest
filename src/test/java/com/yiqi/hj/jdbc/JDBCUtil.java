@@ -54,7 +54,7 @@ public class JDBCUtil{
 		try {
 			// 加载驱动
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://123.56.28.90:3306/XuHappy?useSSL=false", "root", "123456");
+			connection = DriverManager.getConnection("jdbc:mysql://none:3306/XuHappy?useSSL=false", "", "");
 			return connection;
 		} catch (Exception e) {
 			e.printStackTrace();
